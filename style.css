@@ -1,0 +1,151 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(90deg, #ff2d55, #06f);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+.profile-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-right: 0.8rem;
+  object-fit: cover;
+}
+.shop-info h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.shop-info p {
+  font-size: 0.9rem;
+}
+
+/* Search */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #222;
+  border-radius: 25px;
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 1rem;
+}
+#search {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+#clear {
+  background: none;
+  border: none;
+  color: #f55;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Sort */
+.sort-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.sort-box select {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Grid Produk */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Diskon */
+.badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: linear-gradient(90deg, #ff2d55, #06f);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+}
+
+/* Gambar Produk */
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* Info Produk */
+.card-content {
+  padding: 0.5rem;
+}
+.card-content h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+.price {
+  color: #ff2d55;
+  font-weight: bold;
+}
+.price-before {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.85rem;
+  margin-left: 0.4rem;
+}
+.free {
+  color: #0af;
+  font-size: 0.85rem;
+}
+.sold {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 0.2rem;
+}
+
+/* Tombol */
+.btn {
+  display: block;
+  text-align: center;
+  background: linear-gradient(90deg, #ff2d55, #06f);
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin: 0.6rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
