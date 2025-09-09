@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Outfit Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <img src="images/anomali.jpg" alt="Profile" class="profile-img">
+    <div class="shop-info">
+      <h1>DAILY OUTFIT</h1>
+      <p>Cari nomornya di atas ⬆️</p>
+    </div>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input type="text" id="search" placeholder="🔍 Cari nomor / nama produk...">
+    <button id="clear">✖</button>
+  </div>
+
+  <!-- SORT -->
+  <div class="sort-box">
+    <label for="sort">Urutkan</label>
+    <select id="sort">
+      <option value="new">Terbaru (ID ↓)</option>
+      <option value="old">Terlama (ID ↑)</option>
+      <option value="cheap">Termurah</option>
+      <option value="expensive">Termahal</option>
+      <option value="sold">Terlaris</option>
+    </select>
+  </div>
+
+  <!-- PRODUK GRID -->
+  <main>
+    <div id="product-grid" class="grid"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
