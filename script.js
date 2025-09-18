@@ -1,105 +1,128 @@
-/* ===== DATA PRODUK ===== */
+// ====== DATA PRODUK ======
 const PRODUCTS = [
-  {
-    id: 5021,
-    name: "Tote Bag Trendy",
-    price: 69000,
-    price_before: 109000,
-    sold: 310,
-    image: "images/beng.jpeg",
-    url: "https://vt.tokopedia.com/t/ZSHtKmQt6FsAG-CF0ZZ/"
+    {
+    id: 14,
+    name: "House of Smith Sweater Cardigan Pria - New Suls Cardigan Misty #2",
+    price:176000,
+    price_before: 475000,
+    sold: 15000,
+    image: "./images/anomali18.jpg",   // harus ada di /images
+    url: "https://vt.tokopedia.com/t/ZSHnqMSqG59rU-THSVX/"       // ganti ke link Shopee produkmu
+  },   
+ {
+    id: 15,
+    name: "Convergent - Tough Kemeja Flannel Boxy Pria Wanita Lengan Pendek Workshirt",
+    price:112000,
+    price_before: 399400,
+    sold: 100,
+    image: "./images/anomali19.jpg",   // harus ada di /images
+    url: "https://vt.tokopedia.com/t/ZSHnqM552jqpN-30WvD/"       // ganti ke link Shopee produkmu
   },
-  {
-    id: 4112,
-    name: "Casual Hoodie Cream",
-    price: 179000,
-    price_before: 259000,
-    sold: 87,
-    image: "images/hoodie.jpg",
-    url: "#"
+    {
+    id: 16,
+    name: "sternwood Rugby Shirt Long Sleeve Polo Shirt Polo Lengan Panjang Strepe Green White",
+    price:100000,
+    price_before: 228000,
+    sold: 1000,
+    image: "./images/anomali20.jpg",   // harus ada di /images
+    url: "https://vt.tokopedia.com/t/ZSHnqMxq3TBPU-jZY1L/"       // ganti ke link Shopee produkmu
   },
-  {
-    id: 3001,
-    name: "Sepatu Knit Abu",
-    price: 159000,
-    price_before: 229000,
-    sold: 102,
-    image: "images/sepatu-knit.jpg",
-    url: ""
+    {
+    id: 13,
+    name: "SUFINE-CARGO CREAM CHINOS PREMIUM PRIA Shorts Distro Pendek",
+    price:64000,
+    price_before: 150000,
+    sold: 10000,
+    image: "./images/produk14.jpg",   // harus ada di /images
+    url: "https://vt.tokopedia.com/t/ZSHn4vEYy9N7T-hJenb/"       // ganti ke link Shopee produkmu
   },
-  {
-    id: 2131,
-    name: "Asym Knit Elegant",
-    price: 89000,
-    price_before: 129000,
-    sold: 206,
-    image: "images/asym.jpg",
-    url: "#"
-  }
+    {
+    id: 13,
+    name: "14.15.16Sneakers Aekoshoes Beat Blacwhite Lokal Made In Indonesia",
+    price:132000,
+    price_before: 220000,
+    sold: 1400,
+    image: "./images/produk15.jpg",   // harus ada di /images
+    url: "https://vt.tokopedia.com/t/ZSHn4ceHo9pFt-276jp/"       // ganti ke link Shopee produkmu
+  },
+    {
+    id: 13,
+    name: "14.15.16Exhale Apparel Cool Socks",
+    price:38000,
+    price_before: 50000,
+    sold: 2100,
+    image: "./images/produk16.jpg",   // harus ada di /images
+    url: "https://vt.tokopedia.com/t/ZSHn4c2bCQAp6-iAVGD/"       // ganti ke link Shopee produkmu
+  },
+    {
+    id: 13,
+    name: "14.15.16Kacamata Baca 2025 New Anti Radiasi Lensa Plus",
+    price:21000,
+    price_before: 99000,
+    sold: 1200,
+    image: "./images/produk17.jpg",   // harus ada di /images
+    url: "https://vt.tokopedia.com/t/ZSHn4cBbKPACf-ykQzI/"       // ganti ke link Shopee produkmu
+  },
 ];
 
-/* ===== UTIL ===== */
-const toRp = n =>
-  new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0
-  }).format(n);
+// ====== ELEMENTS ======
+const grid = document.getElementById("grid");
+const q = document.getElementById("q");
+const toast = document.getElementById("toast");
 
-/* ===== RENDER PRODUK ===== */
-const grid = document.getElementById("product-grid");
-const search = document.getElementById("search");
-const clearBtn = document.getElementById("clear");
-const sort = document.getElementById("sort");
+// ====== FORMAT RUPIAH ======
+function formatRupiah(num) {
+  return "Rp " + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
 
 function render(list) {
   grid.innerHTML = "";
   list.forEach(p => {
-    const disc = Math.round(((p.price_before - p.price) / p.price_before) * 100);
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <span class="badge">-${disc}%</span>
-      <img src="${p.image}" alt="${p.name}">
-      <div class="card-content">
-        <h3>${p.id}. ${p.name}</h3>
-        <div>
-          <span class="price">${toRp(p.price)}</span>
-          <span class="price-before">${toRp(p.price_before)}</span>
-        </div>
-        <div class="free">Gratis Ongkir</div>
-        <div class="sold">Terjual ${p.sold}</div>
+    // Hitung persentase diskon
+    const discount = Math.round(((p.price_before - p.price) / p.price_before) * 100);
+
+    const el = document.createElement("div");
+    el.className = "card";
+    el.innerHTML = `
+      <div class="image">
+        <img src="${p.image}" alt="${p.name}">
       </div>
-      <a href="${p.url}" class="btn" target="_blank">Lihat</a>
+      <div class="body">
+        <!-- ID produk ditampilkan -->
+        <div class="name">${p.id}. ${p.name}</div>
+        <div class="prices">
+          <span class="price-now">${formatRupiah(p.price)}</span>
+          <span class="price-old">${formatRupiah(p.price_before)}</span>
+          <span class="discount">-${discount}%</span>
+        </div>
+        <div class="sold">Terjual ${p.sold}</div>
+        <a href="${p.url}" class="btn" target="_blank">Beli Sekarang</a>
+      </div>
     `;
-    grid.appendChild(card);
+    grid.appendChild(el);
   });
 }
 
-render(PRODUCTS);
-
-/* ===== SEARCH ===== */
-search.addEventListener("input", e => {
-  const q = e.target.value.toLowerCase();
-  const filtered = PRODUCTS.filter(
-    p =>
-      p.name.toLowerCase().includes(q) ||
-      String(p.id).includes(q)
-  );
+// ====== SEARCH ======
+q.addEventListener("input", () => {
+  const val = q.value.toLowerCase();
+  const filtered = PRODUCTS.filter(p => (p.name + p.id).toLowerCase().includes(val));
   render(filtered);
 });
-clearBtn.addEventListener("click", () => {
-  search.value = "";
-  render(PRODUCTS);
+
+// ====== TOAST ======
+function showToast(text) {
+  toast.textContent = text;
+  toast.classList.add("show");
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
+}
+
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("btn")) {
+    showToast("Membuka link produk...");
+  }
 });
 
-/* ===== SORT ===== */
-sort.addEventListener("change", e => {
-  let sorted = [...PRODUCTS];
-  if (e.target.value === "new") sorted.sort((a,b) => b.id - a.id);
-  if (e.target.value === "old") sorted.sort((a,b) => a.id - b.id);
-  if (e.target.value === "cheap") sorted.sort((a,b) => a.price - b.price);
-  if (e.target.value === "expensive") sorted.sort((a,b) => b.price - a.price);
-  if (e.target.value === "sold") sorted.sort((a,b) => b.sold - a.sold);
-  render(sorted);
-});
+// ====== INIT ======
+render(PRODUCTS);
