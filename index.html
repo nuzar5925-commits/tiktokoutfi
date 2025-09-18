@@ -1,43 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Outfit Shop</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Outfit — TikTok Style</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- HEADER -->
-  <header class="header">
-    <img src="images/anomali.jpg" alt="Profile" class="profile-img">
-    <div class="shop-info">
+  <header class="profile">
+    <img src="./images/anomali.jpg" alt="Logo" class="avatar">
+    <div class="info">
       <h1>DAILY OUTFIT</h1>
-      <p>Cari nomornya di atas ⬆️</p>
+      <p>TikTok Style Catalog</p>
     </div>
   </header>
 
   <!-- SEARCH -->
-  <div class="search-box">
-    <input type="text" id="search" placeholder="🔍 Cari nomor / nama produk...">
-    <button id="clear">✖</button>
+  <div class="search-bar">
+    <input id="q" type="text" placeholder="Cari produk / nomor...">
   </div>
 
-  <!-- SORT -->
-  <div class="sort-box">
-    <label for="sort">Urutkan</label>
-    <select id="sort">
-      <option value="new">Terbaru (ID ↓)</option>
-      <option value="old">Terlama (ID ↑)</option>
-      <option value="cheap">Termurah</option>
-      <option value="expensive">Termahal</option>
-      <option value="sold">Terlaris</option>
-    </select>
-  </div>
-
-  <!-- PRODUK GRID -->
+  <!-- SECTION -->
   <main>
-    <div id="product-grid" class="grid"></div>
+    <h2>DAILY OUTFIT</h2>
+    <div id="grid" class="grid"></div>
   </main>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast"></div>
 
   <script src="script.js"></script>
 </body>
